@@ -1,0 +1,67 @@
+
+
+
+ <form class="col s12 white" #UserRegistrationForm="ngForm" (ngSubmit)="onSubmit(UserRegistrationForm)">
+  <div class="row">
+      <div class="input-field col s6">
+
+          <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.userName" required>
+          <label data-error="required field!">UserName</label>
+      </div>
+
+      <div class="input-field col s6">
+
+          <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.password" required minlength="3">
+          <label for="password" data-error="required field!">Password</label>
+
+      </div>
+      <div class="input-field col s12">
+          <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.email" [pattern]="emailPattern">
+          <label data-error="invalid email">Email</label>
+      </div>
+
+
+
+      <div class="input-field col s6">
+          <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.firstName">
+          <label>FirstName</label>
+      </div>
+
+      <div class="input-field col s6">
+
+          <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.lastName">
+          <label>LastName</label>
+      </div>
+
+      <div *ngIf="userRoleList.length>0">
+          <mat-form-field>
+              <mat-select placeholder="Select User Role" [(ngModel)]="user.userRole" name="userRole" #UserRole="ngModel">
+                  <mat-option *ngFor="let userRole1 of userRoleList" [value]="userRole1.roleName">
+                      {{userRole1.roleName }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+      <div class="input-field col 12">
+
+          <button [disabled]="!UserRegistrationForm.valid" type="submit" class="btn-large btn-submit">Submit</button>
+
+      </div>
+  </div>
+</form> 
+
+<!--
+<div *ngIf="userRoleList.length>0">
+  <mat-selection-list #Role>
+      <mat-list-option *ngFor="let UserRole of userRoleList">
+          {{UserRole.roleName}}
+      </mat-list-option>
+  </mat-selection-list>
+
+  <p>
+      Options selected: {{UserRole.selectedOptions.selected.length}}
+  </p>
+
+</div> -->

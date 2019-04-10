@@ -1,0 +1,122 @@
+<!-- *ngIf="userAuthService.isLogIn()" -->
+<!-- E:\Anna Angular Workspace\28Minutes Spring And Angular\Angular 7\angular728m\src\assets\anna.jpg -->
+<div *ngIf="userAuthService.isLogIn()" class="container-fluid">
+  <div class="row">
+    <nav
+      class="d-none d-md-block sidebar right-padding max-viewport"
+    >
+      <a class="navbar-brand py-3" >
+        <img
+          src="assets/anna.jpg"
+          class="img-fluid rounded-circle img-thumbnail "
+          alt="Logo"
+          style="width:40px;"
+        />
+        {{  getUserName() }}
+      </a>
+      <hr />
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/shopping/products"
+            ><i class="fa fa-home text-muted mr-3"></i>products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "routerLink="/shopping/shopping-cart"
+            ><i class="fa fa-list mr-3 text-muted"></i>shopping-cart</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/shopping/my/orders"
+            ><i class="fa fa-envelope mr-3 text-muted"></i>My-order</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " 
+            ><i class="fa fa-desktop mr-3 text-muted"></i>Chat</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " 
+            ><i class="fa fa-envelope mr-3 text-muted"></i>Mailbox</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav flex-column">
+        <li class="nav-item text-uppercase text-muted">Admin</li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/shopping/admin-products"
+            ><i class="fa fa-list mr-3 text-muted"></i>Admin-Products</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/shopping/admin-orders"
+            ><i class="fa fa-envelope mr-3 text-muted"></i>Admin-Orders</a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link " routerLink="/shopping/admin/product/new"
+            ><i class="fa fa-desktop mr-3 text-muted"></i>Product- Form</a
+          >
+        </li> -->
+
+
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/shopping/paypal"
+            ><i class="fa fa-desktop mr-3 text-muted"></i>Paypal</a
+          >
+        </li>
+      
+      </ul>
+
+
+
+
+
+
+<!--  -->
+
+
+<ul class="navbar-nav flex-column">
+  <li class="nav-item text-uppercase text-muted">USER</li>
+  <li class="nav-item">
+    <a class="nav-link " routerLink="/screen-module-list"
+      ><i class="fa fa-list mr-3 text-muted"></i>Screen Module List</a
+    >
+  </li>
+
+
+  <li class="nav-item">
+    <a class="nav-link " routerLink="/screen-module"
+      ><i class="fa fa-list mr-3 text-muted"></i>Screen Module </a
+    >
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link " routerLink="/screen-master-list"
+      ><i class="fa fa-envelope mr-3 text-muted"></i>Screen Master List</a
+    >
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link " routerLink="/screen-master"
+      ><i class="fa fa-list mr-3 text-muted"></i>Screen Master </a
+    >
+  </li>
+ 
+
+
+
+
+</ul>
+
+
+
+
+
+
+
+    </nav>
+    <!-- end of side bar -->

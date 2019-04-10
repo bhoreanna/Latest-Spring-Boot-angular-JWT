@@ -1,0 +1,128 @@
+
+
+
+ <mat-toolbar>
+  <span>{{screenModule.moduleUid?"Modify Screen Module":"New Screen Module"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form  class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <!-- <mat-form-field>
+        <input  hidden matInput name="moduleUid" #moduleUid="ngModel" type="text" placeholder="screenModule UID"  [(ngModel)]="screenModule.moduleUid" >
+      </mat-form-field> -->
+      <mat-form-field>
+        <input matInput name="moduleId" #moduleId="ngModel" type="text" placeholder="screenModule ID"  [(ngModel)]="screenModule.moduleId" required >
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput name="moduleName" #moduleName="ngModel" type="text" placeholder="screenModule Name"  [(ngModel)]="screenModule.moduleName" required >
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput name="createdBy" #createdBy="ngModel" type="text" placeholder=" createdBy"  [(ngModel)]="screenModule.createdBy" required >
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="screenModule.moduleUid">
+        <input matInput name="modifiedBy" #modifiedBy="ngModel" type="text" placeholder="modifiedBy"  [(ngModel)]="screenModule.modifiedBy" >
+      </mat-form-field>
+
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+         
+          <mat-radio-group  name="moduleStatus" #moduleStatus="ngModel" [(ngModel)]="screenModule.moduleStatus">
+            <mat-radio-button value="active">Active</mat-radio-button>
+            <mat-radio-button value="inActive">InActive</mat-radio-button>
+          </mat-radio-group>
+          
+{{screenModule.createdDate}}
+          
+          <mat-form-field fxFlexFill>
+            <input matInput [matDatepicker]="pickerReminder"  name="createdDate" #createdDate="ngModel" placeholder="Date" [(ngModel)]="screenModule.createdDate" readonly />
+            <mat-datepicker-toggle matSuffix [for]="pickerReminder"></mat-datepicker-toggle>
+        </mat-form-field>
+        <mat-datepicker #pickerReminder></mat-datepicker>
+
+
+        </div>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" >Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form> 
+
+<div *ngIf = "screenMasterListTemp">
+  <app-screen-master-list [screenMasterListTemp]="screenMasterListTemp"></app-screen-master-list>
+</div>
+<!-- <div>
+  <p>
+    <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="search.....">
+  </p>
+  
+  <div class="container">
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="screenMasterUid">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Module UID  </th>
+      <td mat-cell *matCellDef="let element"> {{element.screenMasterUid}} </td>
+    </ng-container>
+  
+     <ng-container matColumnDef="screenMasterId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Module ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.screenMasterId}} </td>
+      </ng-container>
+  
+     <ng-container matColumnDef="screenName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Module Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.screenName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="createdBy">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Created BY </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="screenStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Module Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.screenStatus}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="moduleUid">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Module UID </th>
+        <td mat-cell *matCellDef="let element"> {{element.moduleUid}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="onDelete(row.screenMasterUid)"><mat-icon>delete_outline</mat-icon></button>
+  
+        </mat-cell>
+      </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+  
+  
+  </div>
+  
+</div> -->

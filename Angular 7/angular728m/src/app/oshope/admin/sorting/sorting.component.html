@@ -1,0 +1,15 @@
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="productId">productId (100g)</th>
+    <th mat-sort-header="price">price</th>
+    <th mat-sort-header="title">title </th>
+    
+  </tr>
+
+  <tr *ngFor="let product of sortedDataed">
+    <td>{{product.productId}}</td>
+    <td>{{product.title}}</td>
+    <td>{{product.title}}</td>
+    
+  </tr>
+</table>

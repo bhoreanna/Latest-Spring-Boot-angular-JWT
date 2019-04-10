@@ -1,0 +1,63 @@
+
+<mat-toolbar>
+    <span>{{screenMaster.screenMasterUid?"Modify Screen Master":"New Screen Master"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <form  class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="2" rowHeight="300px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <!-- <mat-form-field>
+          <input  hidden matInput name="screenMasterUid" #screenMasterUid="ngModel" type="text" placeholder="screen Master UID"  [(ngModel)]="screenMaster.screenMasterUid" >
+        </mat-form-field> -->
+        <mat-form-field>
+          <input matInput name="screenMasterId" #screenMasterId="ngModel" type="text" placeholder="Screen Master ID"  [(ngModel)]="screenMaster.screenMasterId" required >
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput name="screenName" #screenName="ngModel" type="text" placeholder="Screen  Name"  [(ngModel)]="screenMaster.screenName" required >
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput name="createdBy" #createdBy="ngModel" type="text" placeholder=" createdBy"  [(ngModel)]="screenMaster.createdBy" required >
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field *ngIf="screenMaster.screenMasterUid">
+          <input matInput name="modifiedBy" #modifiedBy="ngModel" type="text" placeholder="modifiedBy"  [(ngModel)]="screenMaster.modifiedBy" >
+        </mat-form-field>
+  
+  
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="controles-container">
+          <div class="add-bottom-padding">
+           
+            <mat-radio-group  name="screenStatus" #screenStatus="ngModel" [(ngModel)]="screenMaster.screenStatus">
+              <mat-radio-button value="active">Active</mat-radio-button>
+              <mat-radio-button value="inActive">InActive</mat-radio-button>
+            </mat-radio-group>
+            
+  {{screenMaster.createdDate}}
+            
+            <mat-form-field fxFlexFill>
+              <input matInput [matDatepicker]="pickerReminder"  name="createdDate" #createdDate="ngModel" placeholder="Date" [(ngModel)]="screenMaster.createdDate" readonly />
+              <mat-datepicker-toggle matSuffix [for]="pickerReminder"></mat-datepicker-toggle>
+          </mat-form-field>
+          <mat-datepicker #pickerReminder></mat-datepicker>
+  
+  
+          </div>
+          <div class="button-row">
+            <button mat-raised-button color="primary" type="submit" >Submit</button>
+            <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form> 
+  
+  

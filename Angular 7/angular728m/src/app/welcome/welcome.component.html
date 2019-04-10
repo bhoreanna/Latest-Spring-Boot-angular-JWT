@@ -1,0 +1,10 @@
+<p>
+    welcome works!
+</p>
+<div *ngIf="userAuthService.isLogIn(); else anonymous">
+    login sucess
+</div>
+
+<ng-template #anonymous>
+    please login
+</ng-template>

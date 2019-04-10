@@ -1,0 +1,84 @@
+<p>
+  <!-- admin-products works! -->
+</p>
+
+<button mat-raised-button  (click)="onCreate()">
+    <mat-icon>add</mat-icon>Create
+  </button>
+<!-- 
+<p>
+  <a routerLink="/shopping/admin/product/new" class="btn btn-primary">New Product</a>
+
+</p> -->
+
+<!-- <p>
+    <a routerLink="/shopping/sorting" class="btn btn-primary">SORT TABLE</a>
+  
+  </p> -->
+
+  <p>
+    <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="search.....">
+</p>
+
+
+
+ <!-- <table class="table">
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let product of filteredProducts ">
+          <td>{{product.title}}</td>
+          <td>{{product.price}}</td>
+          <td>
+              <a class="btn btn-primary" [routerLink]="['/shopping/admin/product/',product.productId]">Edit</a>
+          </td>
+      </tr>
+  </tbody>
+</table>  -->
+
+
+<div class="container">
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- productId Column -->
+    <ng-container matColumnDef="productId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+    </ng-container>
+
+     <!-- title Column -->
+     <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- title Column -->
+     <ng-container matColumnDef="categoryId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CategoryId </th>
+        <td mat-cell *matCellDef="let element"> {{element.categoryId}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="onDelete(row.productId)"><mat-icon>delete_outline</mat-icon></button>
+
+        </mat-cell>
+      </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+
+     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+
+</div>
+
